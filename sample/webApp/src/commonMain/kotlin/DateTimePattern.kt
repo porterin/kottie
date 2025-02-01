@@ -1,0 +1,9 @@
+enum class DateTimePattern {
+  TIME,
+  DATE,
+  DATE_YEAR,
+  DAY_DATE_YEAR,
+  DATE_TIME,
+  DATE_YEAR_TIME,
+  DAY_DATE_YEAR_TIME,
+}

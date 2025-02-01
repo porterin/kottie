@@ -23,6 +23,11 @@ kotlin {
         binaries.executable()
     }
     sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
+            }
+        }
         val jsMain by getting {
             dependencies {
                 implementation(project(":sample:shared"))

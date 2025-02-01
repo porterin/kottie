@@ -71,7 +71,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 api(libs.androidx.activityCompose)
-                implementation(libs.androidLottie)
+                api(libs.androidLottie)
             }
         }
 

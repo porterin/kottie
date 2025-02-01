@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -24,12 +24,20 @@ kotlin {
         browser {
             commonWebpackConfig {
                 outputFileName = "webApp-wasm.js"
+                cssSupport {
+                    enabled = true
+                }
             }
         }
         binaries.executable()
     }
 
     sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
+            }
+        }
         val wasmJsMain by getting {
             dependencies {
                 implementation(project(":sample:shared"))
