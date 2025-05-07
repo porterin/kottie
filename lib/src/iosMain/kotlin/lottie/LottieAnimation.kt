@@ -1,7 +1,6 @@
 package lottie
 
 import Lottie.CompatibleAnimationView
-import androidx.compose.foundation.background
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -39,12 +38,12 @@ fun LottieAnimation(
             androidx.compose.ui.viewinterop.UIKitView(
                 factory = {
                     UIView().apply {
-                        this.backgroundColor = UIColor.clearColor
+                        this.backgroundColor = backgroundColor.toUIColor()
                         this.tintColor = UIColor.clearColor
                         this.clipsToBounds = clipToCompositionBounds
                     }
                 },
-                modifier = modifier.background(backgroundColor),
+                modifier = modifier,
                 update = { view ->
 
                     composition.translatesAutoresizingMaskIntoConstraints = false
@@ -83,3 +82,10 @@ fun LottieAnimation(
     }
 }
 
+fun Color.toUIColor(): UIColor {
+    val red = (this.red * 255) / 255.0
+    val green = (this.green * 255) / 255.0
+    val blue = (this.blue * 255) / 255.0
+    val alpha = (this.alpha * 255) / 255.0
+    return UIColor(red = red, green = green, blue = blue, alpha = alpha)
+}
