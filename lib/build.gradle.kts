@@ -125,7 +125,7 @@ android {
 var currPublishVersion: String? = null
 
 mavenPublishing {
-    coordinates("io.github.ismai117", "kottie", "2.1.1-porter")
+    coordinates("io.github.ismai117", "kottie", "3.0.0-porter")
 
     pom {
         name.set(project.name)
